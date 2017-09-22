@@ -1,0 +1,71 @@
+i --> 2
+Testing 4 <= 5 --> True
+heaplist before swap is [0, 9, 5, 6, 2, 3]
+Evaluating minimum of two leaf nodes
+self.heapList[5] is compared with self.heapList[4]
+self.heapList[5] --> 3 is > self.heapList[4] --> 2
+returning 4 as an index of child with lesser value
+mc <-- 4
+self.heapList[2] is compared with self.heapList[4]
+self.heapList[2]-->(5) > self.heapList[4] --> (2)
+heaplist after swap is [0, 9, 2, 6, 5, 3]
+i <-- mc
+i --> 4 
+
+Testing 8 <= 5 --> False
+i --> 1
+Testing 2 <= 5 --> True
+heaplist before swap is [0, 9, 2, 6, 5, 3]
+Evaluating minimum of two leaf nodes
+self.heapList[3] is compared with self.heapList[2]
+self.heapList[3] --> 6 is > self.heapList[2] --> 2
+returning 2 as an index of child with lesser value
+mc <-- 2
+self.heapList[1] is compared with self.heapList[2]
+self.heapList[1]-->(9) > self.heapList[2] --> (2)
+heaplist after swap is [0, 2, 9, 6, 5, 3]
+i <-- mc
+i --> 2 
+
+Testing 4 <= 5 --> True
+heaplist before swap is [0, 2, 9, 6, 5, 3]
+Evaluating minimum of two leaf nodes
+self.heapList[5] is compared with self.heapList[4]
+self.heapList[4] --> 5 is > self.heapList[5] --> 3
+returning 5 as an index of child with lesser value
+mc <-- 5
+self.heapList[2] is compared with self.heapList[5]
+self.heapList[2]-->(9) > self.heapList[5] --> (3)
+heaplist after swap is [0, 2, 3, 6, 5, 9]
+i <-- mc
+i --> 5 
+
+Testing 10 <= 5 --> False
+hepList before deletion: [0, 2, 3, 6, 5, 9]
+i --> 1
+Testing 2 <= 4 --> True
+heaplist before swap is [0, 9, 3, 6, 5]
+Evaluating minimum of two leaf nodes
+self.heapList[3] is compared with self.heapList[2]
+self.heapList[3] --> 6 is > self.heapList[2] --> 3
+returning 2 as an index of child with lesser value
+mc <-- 2
+self.heapList[1] is compared with self.heapList[2]
+self.heapList[1]-->(9) > self.heapList[2] --> (3)
+heaplist after swap is [0, 3, 9, 6, 5]
+i <-- mc
+i --> 2 
+
+Testing 4 <= 4 --> True
+heaplist before swap is [0, 3, 9, 6, 5]
+Evaluating minimum of two leaf nodes
+i*2+1-->(5) > self.currentSize-->(4)
+mc <-- 4
+self.heapList[2] is compared with self.heapList[4]
+self.heapList[2]-->(9) > self.heapList[4] --> (5)
+heaplist after swap is [0, 3, 5, 6, 9]
+i <-- mc
+i --> 4 
+
+Testing 8 <= 4 --> False
+hepList after deletion: [0, 3, 5, 6, 9]

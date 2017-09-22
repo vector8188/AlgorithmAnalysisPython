@@ -1,5 +1,4 @@
-class Stack:
-
+class Queue:
 
     def __init__(self):
         self.items = []
@@ -7,16 +6,14 @@ class Stack:
     def isEmpty(self):
         return self.items == []
 
-    def push(self, item):
-        self.items.append(item)
+    def enqueue(self, item):
+        self.items.insert(0, item)
 
-    def pop(self):
+    def dequeue(self):
         return self.items.pop()
-
-    def peek(self):
-        return self.items[len(self.items)-1]
 
     def size(self):
         return len(self.items)
-
-
+    
+    def __str__(self):
+        return str(self.items)
