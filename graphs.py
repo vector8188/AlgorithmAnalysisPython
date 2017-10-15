@@ -20,7 +20,7 @@ class Vertex:
         return self.id
 
     def getWeight(self, nbr):
-        return connectedTo[nbr]
+        return self.connectedTo[nbr]
 
     def setDistance(self, distance):
         self.distance = distance
@@ -61,7 +61,7 @@ class Graph:
         self.vertList.get(origin).addNeighbor(destination, cost)
 
     def getVertices(self):
-        return self.vertices.keys()
+        return self.vertList.keys()
 
     def __iter__(self):
         return iter(self.vertList.values())

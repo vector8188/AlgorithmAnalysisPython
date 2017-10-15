@@ -4,7 +4,7 @@ from graphs import Graph
 def buildGraph(wordFile):
     d = {}
     g = Graph()
-    wfile = open(wfile, 'r')
+    wfile = open(wordFile, 'r')
     # create buckets of word differ by one letter.
     for line in wfile:
         word = line.rstrip()
