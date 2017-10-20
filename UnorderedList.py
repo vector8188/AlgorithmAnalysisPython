@@ -88,7 +88,6 @@ class UnorderedList:
 		current = self.head
 		index_counter = 0 
 		previous = None
-		temp = Node(item)
 		while index_counter < index:
 			index_counter = index_counter + 1
 			previous = current
