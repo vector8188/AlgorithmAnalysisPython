@@ -4,6 +4,7 @@ from queue import Queue
 
 
 class Printer:
+    # ppm is the number of pages processed by the printer per minute.
     def __init__(self, ppm):
         self.pagerate  = ppm
         self.currentTask = None
@@ -27,6 +28,7 @@ class Printer:
 
 
 class Task:
+     # pages is the number of pages requested by the student per print task.
     def __init__(self, time):
         self.timestamp = time
         self.pages = random.randrange(1,21)
@@ -38,7 +40,7 @@ class Task:
         return self.pages
     
     def waitTime(self, currenttime):
-        return currenttime - self.timestamp
+        return currenttime - self.getStamp()
     
 def simulation(numSeconds, pagesPerMinute):
     labprinter = Printer(pagesPerMinute)
@@ -52,7 +54,9 @@ def simulation(numSeconds, pagesPerMinute):
         
         if ( not labprinter.busy() and not printQueue.isEmpty() ):
             nexttask = printQueue.dequeue()
+            # print(currentSecond)
             waitingtimes.append(nexttask.waitTime(currentSecond))
+            # print(currentSecond)
             labprinter.startNext(nexttask)
 
         labprinter.tick()
