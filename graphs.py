@@ -12,8 +12,7 @@ class Vertex:
         self.connectedTo[nbr] = weight
 
     def __str__(self):
-        return str(self.id) + ' connectedTo: ' + str(
-            [x for x in self.connectedTo])
+        return str(self.id)
 
     def getConnections(self):
         return self.connectedTo.keys()
@@ -42,6 +41,9 @@ class Vertex:
     def setDiscovery(self,dtime):
         self.disc = dtime
 
+    def getDiscovery(self):
+        return self.disc
+
     def setPred(self,p):
         self.pred = p
     
@@ -51,6 +53,9 @@ class Vertex:
     def setFinish(self,ftime):
         self.fin = ftime
 
+    def getFinish(self):
+        return self.fin
+    
 class Graph:
     def __init__(self):
         self.vertList = {}
@@ -59,6 +64,7 @@ class Graph:
     def addVertex(self, key):
         self.numVertices = self.numVertices + 1
         self.vertList[key] = Vertex(key)
+        return Vertex(key)
 
     def getVertex(self, key):
         return self.vertList.get(key)
@@ -67,11 +73,11 @@ class Graph:
         return n in self.vertList
 
     def addEdge(self, origin, destination, cost=0):
-        if not self.vertList.get(origin):
+        if origin not in self.vertList:
             self.addVertex(origin)
-        if not self.vertList.get(destination):
+        if destination not in self.vertList:
             self.addVertex(destination)
-        self.vertList.get(origin).addNeighbor(destination, cost)
+        self.vertList.get(origin).addNeighbor(self.vertList.get(destination), cost)
 
     def getVertices(self):
         return self.vertList.keys()
