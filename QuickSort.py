@@ -18,13 +18,33 @@ def partition(alist, first, last):
 
     while not done:
         while leftmark <= rightmark and alist[leftmark] <= pivotValue:
+            print(
+                "comparing, leftmark: {} <= rightmark: {} == {} and alist[leftmark]: {} <= pivotValue:{} == {} \n".format(
+                    leftmark,  rightmark,(leftmark <= rightmark) , alist[leftmark], pivotValue, (alist[leftmark] <= pivotValue)
+                    ))
+            print("current value of leftmark:{} \n".format(leftmark))
             leftmark = leftmark +1
-            print("increasing leftmark by 1,  leftmark:{}".format(leftmark))
+            print("increasing leftmark by 1,  leftmark:{} \n".format(leftmark))
+        else:
+            print(
+                "comparing, leftmark: {} <= rightmark: {} == {} and alist[leftmark]: {} <= pivotValue:{} == {} \n".format(
+                    leftmark,  rightmark,(leftmark <= rightmark) , alist[leftmark], pivotValue, (alist[leftmark] <= pivotValue)
+                    ))            
         while rightmark >= leftmark and pivotValue  <= alist[rightmark]:
+            print(
+                "comparing, rightmark: {} => leftmark: {} == {} and pivotValue: {} <= alist[rightmark]: {} == {} \n".format(
+                    rightmark,  leftmark, (rightmark >= leftmark) , pivotValue, alist[rightmark], (pivotValue <= alist[rightmark])
+                    ))
+            print("current value of rightmark:{} \n".format(rightmark))
             rightmark = rightmark - 1
-            print("decreasing rightmark by 1, rightmark:{}".format(rightmark))
+            print("decreasing rightmark by 1, rightmark:{} \n".format(rightmark))
+        else:
+            print(
+                "comparing, rightmark: {} => leftmark: {} == {} and pivotValue: {} <= alist[rightmark]: {} == {} \n".format(
+                    rightmark,  leftmark, (rightmark >= leftmark) , pivotValue, alist[rightmark], (pivotValue <= alist[rightmark])
+                    ))
         if leftmark > rightmark:
-            print("INFLECTION:leftmark:{} > rightmark:{}".format(leftmark, rightmark))
+            print("INFLECTION: leftmark: {} > rightmark: {} \n".format(leftmark, rightmark))
             done = True
         else:
             print("alist before exchange:{}".format(alist))
@@ -32,7 +52,7 @@ def partition(alist, first, last):
             swap = alist[leftmark]
             alist[leftmark] = alist[rightmark]
             alist[rightmark] = swap
-            print("alist after exchange:{}".format(alist))
+            print("alist after exchange:{}\n".format(alist))
 
     print(
         "{} > {}; we need to put lesser value in front of the list".format(
