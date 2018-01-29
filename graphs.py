@@ -44,9 +44,6 @@ class Vertex:
     def getDiscovery(self):
         return self.disc
 
-    def setPred(self,p):
-        self.pred = p
-    
     def getPred(self):
         return self.pred
     
