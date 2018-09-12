@@ -1,4 +1,4 @@
 {
-    "python.linting.pylintEnabled": true,
+    "python.linting.pylintEnabled": false,
     "python.pythonPath": "/Users/vaibhavchauhan/.pyenv/versions/OOPS-Python/bin/python"
 }
