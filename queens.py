@@ -1,5 +1,4 @@
 class Board:
-    no_of_queens = 0
     def __init__(self):
         self.no_of_queens = 0
         self.all_positions = {}
