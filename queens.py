@@ -21,21 +21,21 @@ def generate_attack_moves(pos):
         if legal_moves.get(point) and legal_moves.get(point)['Status'] != "Queen":
             unattacked_positions[point]['Status'] = "Attacked"
             # del(unattacked_positions[point])
-        point = point + f' x: {x} + {i}, y: {y} + {0} => px: {px}, py: {py}'
-        if  not seen.get(point):
-            seen[point] = 1
-            print(point)
+        # point = point + f' x: {x} + {i}, y: {y} + {0} => px: {px}, py: {py}'
+        # if  not seen.get(point):
+        #     seen[point] = 1
+        #     print(point)
         point = ""
         px = x
         py = y + i
         point = pos[0] + str(px) + str(py)
         if legal_moves.get(point) and legal_moves.get(point)['Status'] != "Queen":
             unattacked_positions[point]['Status'] = "Attacked"
-            # del(unattacked_positions[point])
-        point = point + f' x: {x} + {0}, y: {y} + {i} => px: {px}, py: {py}'
-        if  not seen.get(point):
-            seen[point] = 1
-            print(point)
+        #     # del(unattacked_positions[point])
+        # point = point + f' x: {x} + {0}, y: {y} + {i} => px: {px}, py: {py}'
+        # if  not seen.get(point):
+        #     seen[point] = 1
+        #     print(point)
         point = ""
         px = x - i
         py = y
@@ -43,10 +43,10 @@ def generate_attack_moves(pos):
         if legal_moves.get(point) and legal_moves.get(point)['Status'] != "Queen":
             unattacked_positions[point]['Status'] = "Attacked"
             # del(unattacked_positions[point])
-        point = point + f' x: {x} - {i}, y: {y} + {0} => px: {px}, py: {py}'
-        if not seen.get(point):
-            seen[point] = 1
-            print(point)
+        # point = point + f' x: {x} - {i}, y: {y} + {0} => px: {px}, py: {py}'
+        # if not seen.get(point):
+        #     seen[point] = 1
+        #     print(point)
         point = ""
         px = x
         py = y - i
@@ -54,10 +54,10 @@ def generate_attack_moves(pos):
         if legal_moves.get(point) and legal_moves.get(point)['Status'] != "Queen":
             unattacked_positions[point]['Status'] = "Attacked"
             # del(unattacked_positions[point])
-        if not seen.get(point):
-            seen[point] =  1
-            point = point + f' x: {x} + {0}, y: {y} - {i} => px: {px}, py: {py}'
-            print(point)
+        # if not seen.get(point):
+        #     seen[point] =  1
+        #     point = point + f' x: {x} + {0}, y: {y} - {i} => px: {px}, py: {py}'
+        #     print(point)
         #generate diagonal directional moves for Queen.
         point = ""
         px = x + i
@@ -66,10 +66,10 @@ def generate_attack_moves(pos):
         if legal_moves.get(point) and legal_moves.get(point)['Status'] != "Queen":
             unattacked_positions[point]['Status'] = "Attacked"
             # del(unattacked_positions[point])
-        point = point + f' x: {x} + {i}, y: {y} + {i} => px: {px}, py: {py}'
-        if not seen.get(point):
-            seen[point] =  1
-            print(point)
+        # point = point + f' x: {x} + {i}, y: {y} + {i} => px: {px}, py: {py}'
+        # if not seen.get(point):
+        #     seen[point] =  1
+        #     print(point)
         point = ""
         px = x - i
         py = y - i
@@ -77,10 +77,10 @@ def generate_attack_moves(pos):
         if legal_moves.get(point) and legal_moves.get(point)['Status'] != "Queen":
             unattacked_positions[point]['Status'] = "Attacked"
             # del(unattacked_positions[point])
-        point = point + f' x: {x} - {i}, y: {y} - {i} => px: {px}, py: {py}'
-        if seen.get(point) == 0:
-            seen[point] = 1
-            print(point)
+        # point = point + f' x: {x} - {i}, y: {y} - {i} => px: {px}, py: {py}'
+        # if seen.get(point) == 0:
+        #     seen[point] = 1
+        #     print(point)
         point = ""
         px = x  - i
         py = y  + i
@@ -88,10 +88,10 @@ def generate_attack_moves(pos):
         if legal_moves.get(point) and legal_moves.get(point)['Status'] != "Queen":
             unattacked_positions[point]['Status'] = "Attacked"
             # del(unattacked_positions[point])
-        point = point + f' x: {x} - {i}, y: {y} + {i}  => px: {px}, py: {py}'
-        if not seen.get(point):
-            seen[point] =  1
-            print(point)
+        # point = point + f' x: {x} - {i}, y: {y} + {i}  => px: {px}, py: {py}'
+        # if not seen.get(point):
+        #     seen[point] =  1
+        #     print(point)
         point = ""
         px = x  + i
         py = y  - i
@@ -99,13 +99,19 @@ def generate_attack_moves(pos):
         if legal_moves.get(point) and legal_moves.get(point)['Status'] != "Queen":
             unattacked_positions[point]['Status'] = "Attacked"
             # del(unattacked_positions[point])
-        point = point + f' x: {x} + {i}, y: {y} - {i}  => px: {px}, py: {py}'
-        if not seen.get(point):
-            seen[point] =  1
-            print(point)
+        # point = point + f' x: {x} + {i}, y: {y} - {i}  => px: {px}, py: {py}'
+        # if not seen.get(point):
+        #     seen[point] =  1
+        #     print(point)
         point = ""
         
     return unattacked_positions
+
+def attack(px, py):
+    point = 'P' + str(px) + str(py)
+    if legal_moves.get(point) and legal_moves.get(point)['Status'] != "Queen":
+        unattacked_positions[point]['Status'] = "Attacked"
+    return
 
 
 
@@ -121,11 +127,15 @@ class Board:
             self.no_of_queens = self.no_of_queens + 1
             generate_attack_moves(position)
         else:
-            print("cant place queen")
+            print(f'cant place queen on {self.all_positions.get(position)}')
 
     
     def remove_queen(self, position):
-        no_of_queens = no_of_queens - 1
+        if self.all_positions.get(position) and self.all_positions.get(position)['Status'] == "Queen":
+            self.all_positions.get(position)['Status'] = "Not_Attacked"
+            self.no_of_queens = self.no_of_queens - 1
+            print(f'removed queen from {self.all_positions.get(position)}')
+
     
     def has_8_queens(self):
         return True if no_of_queens > 8 else False 
@@ -134,3 +144,4 @@ board = Board(unattacked_positions)
 
 board.place_queen("P33")
 board.place_queen("P22")
+board.remove_queen("P33")
